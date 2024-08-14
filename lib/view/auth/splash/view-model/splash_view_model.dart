@@ -4,6 +4,7 @@ import 'package:mobx/mobx.dart';
 import 'package:tictactoe/core/base/model/base_model.dart';
 import 'package:tictactoe/core/constant/enum/storage_enum.dart';
 import 'package:tictactoe/core/constant/navigation/navigation_constant.dart';
+import 'package:tictactoe/core/manager/manager.dart';
 
 part 'splash_view_model.g.dart';
 
@@ -17,8 +18,8 @@ abstract class _SplashViewModelBase with Store, BaseModel {
   }
 
   @override
-  Future<void> init() async {
-    await autoLogin();
+  void init() {
+    WidgetsBinding.instance.addPostFrameCallback((_)  { autoLogin(); });
   }
 
   @override
@@ -31,8 +32,8 @@ abstract class _SplashViewModelBase with Store, BaseModel {
     return MediaQuery.of(context).size.height * value;
   }
 
-  Future<void> autoLogin() async {
-    if(!(await storageManager.checkStringValue(StorageEnum.authToken))) {
+  void autoLogin() {
+    if(Manager.instance.managerModel.firebaseAuth.currentUser == null) {
       navigation.navigateToPageClear(path: NavigationConstant.login);
     }
   }
