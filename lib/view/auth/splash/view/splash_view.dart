@@ -4,6 +4,7 @@ import 'package:tictactoe/core/constant/image/image_constant.dart';
 import 'package:tictactoe/core/constant/strings/strings.dart';
 import 'package:tictactoe/core/init/theme/app_theme.dart';
 import 'package:tictactoe/product/widget/custom_indicator.dart';
+import 'package:tictactoe/product/widget/intro_widget.dart';
 import 'package:tictactoe/view/auth/splash/view-model/splash_view_model.dart';
 
 class SplashView extends StatelessWidget {
@@ -30,11 +31,9 @@ class SplashView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(ImageFile.instance.toImage(ImageConstant.icon), width: viewModel.dynamicWidth(context, .3)),
-              const SizedBox(height: 8),
-              Text(Strings.appName, style: AppTheme().whiteBoldTS.copyWith(fontSize: 24)),
+              IntroWidget(viewModel: viewModel),
               const SizedBox(height: 16),
-              const CustomIndicator()
+              const CustomIndicator(),
             ],
           ),
         ),
