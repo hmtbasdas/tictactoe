@@ -15,4 +15,8 @@ const boardColor3 = Color(0xFFB22222);
 const boardColor4 = Color(0xFF98FF98);
 const boardColor5 = Color(0xFFA1CAF1);
 
+const basicLevel = Color(0xFF2DD920);
+const mediumLevel = Color(0xFFC27417);
+const hardLevel = Color(0xFFCE0909);
+
 List<Color> gameBoardColorList = [boardColor1, boardColor2, boardColor3, boardColor4, boardColor5];

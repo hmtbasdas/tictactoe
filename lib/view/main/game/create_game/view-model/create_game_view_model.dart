@@ -15,6 +15,9 @@ abstract class _CreateGameViewModelBase with Store, BaseModel {
   TextEditingController gameNameTextEditingController = TextEditingController();
 
   @observable
+  int selectedGameBoardType = 3;
+
+  @observable
   int selectedGameBoardColorIndex = 0;
 
   @override
@@ -37,7 +40,7 @@ abstract class _CreateGameViewModelBase with Store, BaseModel {
   }
 
   Future<void> createGame() async {
-    bool result = await gameService.createGame(gameNameTextEditingController.text, selectedGameBoardColorIndex);
+    bool result = await gameService.createGame(gameNameTextEditingController.text, selectedGameBoardType, selectedGameBoardColorIndex);
     result ? Navigator.pop(mContext!) : customSnackBar.showCustomSnackBar(errorColor, "Something went wrong!");
   }
 
@@ -50,5 +53,10 @@ abstract class _CreateGameViewModelBase with Store, BaseModel {
   @action
   void changeGameBoardColor(int index) {
     selectedGameBoardColorIndex = index;
+  }
+
+  @action
+  void changeGameBoardType(int index) {
+    selectedGameBoardType = index;
   }
 }

@@ -19,4 +19,19 @@ class FirestoreStream {
       });
     } on FirebaseException catch (_) {}
   }
+
+  void listenPlayground(String gameName, Function function) {
+    try {
+      final gamesDocRef = Manager.instance.managerModel.firestore
+          .collection(FSCollectionEnum.Games.name)
+          .doc(gameName)
+          .collection(FSCollectionEnum.Playground.name);
+      _listenGamesStreamSubscription = gamesDocRef.snapshots().listen((QuerySnapshot querySnapshot) async {
+        for (var element in querySnapshot.docChanges) {
+          final playgroundData = element.doc.data() as Map<String, dynamic>;
+          function(playgroundData, element.type);
+        }
+      });
+    } on FirebaseException catch (_) {}
+  }
 }
