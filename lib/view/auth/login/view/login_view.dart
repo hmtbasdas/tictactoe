@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:tictactoe/core/base/view/base_view.dart';
 import 'package:tictactoe/core/constant/color/colors.dart';
 import 'package:tictactoe/core/constant/image/image_constant.dart';
@@ -63,17 +64,21 @@ class LoginView extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 8),
-        ElevatedButton(
-          onPressed: viewModel.validate,
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(greenColor),
-            fixedSize: MaterialStateProperty.all(Size(viewModel.dynamicWidth(context, 1), 50)),
-          ),
-          child: Text(
-            Strings.login,
-            maxLines: 1,
-            style: AppTheme().whiteBoldTS.copyWith(fontSize: 16),
-          ),
+        Observer(
+          builder: (context) {
+            return viewModel.loginButtonStatus == LoginButtonStatus.ready ? ElevatedButton(
+              onPressed: viewModel.validate,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: greenColor,
+                fixedSize: Size(viewModel.dynamicWidth(context, 1), 50),
+              ),
+              child: Text(
+                Strings.login,
+                maxLines: 1,
+                style: AppTheme().whiteBoldTS.copyWith(fontSize: 16),
+              ),
+            ) : const CustomIndicator();
+          },
         ),
       ],
     );

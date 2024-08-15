@@ -13,6 +13,7 @@ class AppTheme {
         hoverColor: Colors.transparent,
         appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: whiteColor),
+          backgroundColor: backgroundColor
         ),
       );
 }

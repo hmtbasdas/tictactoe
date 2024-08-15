@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:tictactoe/core/constant/color/colors.dart';
 
 part 'manager_model.g.dart';
 
@@ -12,4 +13,6 @@ abstract class _ManagerModelBase with Store {
 
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  User? user;
 }
