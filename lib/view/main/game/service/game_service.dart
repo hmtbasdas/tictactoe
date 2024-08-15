@@ -4,6 +4,7 @@ import 'package:tictactoe/product/model/game_model.dart';
 import 'package:tictactoe/view/main/game/service/igame_service.dart';
 
 class GameService implements IGameService {
+  /// oyun oluştur. Öneri: [player1DisplayName] - [player2DisplayName] alanlarıı [Users] Collection üzerinden çekilebilirdi
   @override
   Future<bool> createGame(String gameName, int gameBoardType, int gameBoardColorIndex) async {
     try {
@@ -23,16 +24,22 @@ class GameService implements IGameService {
     }
   }
 
+  /// oyuna katılmak isteyen kullanıcı bu servisi kullanır
   @override
   Future<void> playGame(String gameName) async {
     try {
-      await Manager.instance.managerModel.firestore
-          .collection(FSCollectionEnum.Games.name)
-          .doc(gameName.replaceAll(RegExp(r"\s+"), ""))
-          .update({"isGameStart": true, "player2UID": Manager.instance.managerModel.user!.uid, "player2DisplayName": Manager.instance.managerModel.user!.displayName});
+      /// doc [gameName] regex
+      await Manager.instance.managerModel.firestore.collection(FSCollectionEnum.Games.name).doc(gameName.replaceAll(RegExp(r"\s+"), "")).update(
+        {
+          "isGameStart": true,
+          "player2UID": Manager.instance.managerModel.user!.uid,
+          "player2DisplayName": Manager.instance.managerModel.user!.displayName,
+        },
+      );
     } catch (_) {}
   }
 
+  /// oyun sonu veya oyunu oluşturan kullanıcı çalışan fonksiyondur
   @override
   Future<void> deleteGame(String gameName) async {
     try {
@@ -41,6 +48,7 @@ class GameService implements IGameService {
     } catch (_) {}
   }
 
+  /// oyuncuların tahta üzerindeki yaptığı hamlelerde kullanılan fonksiyondur
   @override
   Future<String?> tapPlayground(GameModel gameModel, int boxIndex) async {
     try {
@@ -51,10 +59,10 @@ class GameService implements IGameService {
           .get();
 
       if (moveList.docs.isEmpty && gameModel.player1UID == Manager.instance.managerModel.user!.uid) {
-        sendTap(gameModel, boxIndex, moveList.size, gameModel.player1UID);
+        await sendTap(gameModel, boxIndex, moveList.size, gameModel.player1UID);
       } else {
         if (moveList.docs.last.data()["playerUID"] != Manager.instance.managerModel.user!.uid) {
-          sendTap(gameModel, boxIndex, moveList.size, Manager.instance.managerModel.user!.uid);
+          await sendTap(gameModel, boxIndex, moveList.size, Manager.instance.managerModel.user!.uid);
         } else {
           return "Not your turn!";
         }
@@ -66,7 +74,8 @@ class GameService implements IGameService {
     return null;
   }
 
-  void sendTap(GameModel gameModel, int boxIndex, int moveNumber, playerUID) async {
+  /// oyuncuların hamlelerini firebasefirestore'a kaydeder
+  Future<void> sendTap(GameModel gameModel, int boxIndex, int moveNumber, playerUID) async {
     await Manager.instance.managerModel.firestore
         .collection(FSCollectionEnum.Games.name)
         .doc(gameModel.gameName!.replaceAll(RegExp(r"\s+"), ""))
@@ -81,6 +90,7 @@ class GameService implements IGameService {
     );
   }
 
+  /// beraberlik durumunda move geçmişi buradan silinir
   @override
   Future<void> deletePlayground(String gameName) async {
     try {
