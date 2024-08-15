@@ -5,6 +5,7 @@ import 'package:tictactoe/view/auth/service/iauth_service.dart';
 
 class AuthService implements IAuthService {
 
+  // anonim giriş
   @override
   Future<User?> anonymousLogin(String displayName) async {
     try {
@@ -28,6 +29,7 @@ class AuthService implements IAuthService {
     return Manager.instance.managerModel.firebaseAuth.currentUser;
   }
 
+  // çıkış
   @override
   Future<bool> signOut() async {
     try {
@@ -39,10 +41,12 @@ class AuthService implements IAuthService {
     }
   }
 
+  // mevcut kullanıcı geri döndürülür
   Future<User?> _returnUser() async {
     return Manager.instance.managerModel.firebaseAuth.currentUser;
   }
 
+  // kullanıcı bilgisi Users adında bir collection'a eklendi
   Future<void> _saveUserData(String uid, String displayName) async {
     await Manager.instance.managerModel.firestore.collection(FSCollectionEnum.Users.name).doc(uid).set(
       {

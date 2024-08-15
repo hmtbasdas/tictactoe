@@ -1,3 +1,4 @@
+// oyuncuların oynadıkları hamleler için kullanılan modeldir
 class GameMoveModel {
   String? playerUID, type;
   int? boxIndex, moveNumber;

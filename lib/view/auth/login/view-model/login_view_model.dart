@@ -6,7 +6,6 @@ import 'package:tictactoe/core/base/model/base_model.dart';
 import 'package:tictactoe/core/constant/color/colors.dart';
 import 'package:tictactoe/core/constant/navigation/navigation_constant.dart';
 import 'package:tictactoe/core/manager/manager.dart';
-import 'package:tictactoe/product/model/user_model.dart';
 import 'package:tictactoe/view/auth/service/auth_service.dart';
 import 'package:tictactoe/view/auth/service/iauth_service.dart';
 
@@ -19,9 +18,11 @@ abstract class _LoginViewModelBase with Store, BaseModel {
 
   TextEditingController usernameTextEditingController = TextEditingController();
 
+  // değişikliklerin izlenilmesi için observable kullanıldı
   @observable
   LoginButtonStatus loginButtonStatus = LoginButtonStatus.ready;
 
+  // kullanılacak servisler tanımlandı
   @override
   void setContext(BuildContext context) {
     mContext = context;
@@ -41,6 +42,7 @@ abstract class _LoginViewModelBase with Store, BaseModel {
     return MediaQuery.of(context).size.height * value;
   }
 
+  // anonim giriş <= button onPressed
   @action
   Future<void> anonymousLogin() async {
     loginButtonStatus = LoginButtonStatus.busy;
@@ -55,6 +57,7 @@ abstract class _LoginViewModelBase with Store, BaseModel {
     loginButtonStatus = LoginButtonStatus.ready;
   }
 
+  // oyun ismi için gerekli ufak bir validate
   validate() async {
     usernameTextEditingController.text.isNotEmpty ?
     await anonymousLogin() :

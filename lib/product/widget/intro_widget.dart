@@ -3,6 +3,7 @@ import 'package:tictactoe/core/constant/image/image_constant.dart';
 import 'package:tictactoe/core/constant/strings/strings.dart';
 import 'package:tictactoe/core/init/theme/app_theme.dart';
 
+// splash ve login'de ortak kullanılan widget
 class IntroWidget extends StatelessWidget {
   const IntroWidget({ required this.viewModel, super.key});
 

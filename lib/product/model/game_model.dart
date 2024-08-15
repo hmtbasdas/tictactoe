@@ -1,3 +1,4 @@
+// oyun kurmak için kullanılan modeldir
 class GameModel {
   String? gameName, player1UID, player1DisplayName, player2UID, player2DisplayName;
   bool? isGameStart;

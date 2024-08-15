@@ -6,6 +6,7 @@ class CustomIndicator extends StatelessWidget {
 
   final double height, width;
 
+  // custom indicator
   @override
   Widget build(BuildContext context) {
     return SizedBox(height: height, width: width, child: const CircularProgressIndicator(color: whiteColor, backgroundColor: backgroundColor));

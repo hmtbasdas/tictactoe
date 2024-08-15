@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tictactoe/core/manager/manager.dart';
 
+// oyun içerisindeki hataların gösteriminde kullanıldı
 class CustomSnackBar {
 
   late final ScaffoldMessengerState _scaffold;

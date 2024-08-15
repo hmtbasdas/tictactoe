@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:tictactoe/core/base/view/base_view.dart';
 import 'package:tictactoe/core/constant/color/colors.dart';
-import 'package:tictactoe/core/constant/image/image_constant.dart';
 import 'package:tictactoe/core/constant/strings/strings.dart';
 import 'package:tictactoe/core/init/theme/app_theme.dart';
 import 'package:tictactoe/product/widget/custom_indicator.dart';

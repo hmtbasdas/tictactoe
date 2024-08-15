@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:tictactoe/core/base/model/base_model.dart';
-import 'package:tictactoe/core/constant/enum/storage_enum.dart';
 import 'package:tictactoe/core/constant/navigation/navigation_constant.dart';
 import 'package:tictactoe/core/manager/manager.dart';
 import 'package:tictactoe/view/auth/service/auth_service.dart';
@@ -24,6 +23,7 @@ abstract class _SplashViewModelBase with Store, BaseModel {
   @override
   void init() {
     authService = AuthService();
+    // autoLogin öncesi sayfanın yüklenmesi için kullanıldı
     WidgetsBinding.instance.addPostFrameCallback((_) async { await autoLogin(); });
   }
 
@@ -37,6 +37,7 @@ abstract class _SplashViewModelBase with Store, BaseModel {
     return MediaQuery.of(context).size.height * value;
   }
 
+  // firebaseAuth altında kullanıcı var ise direkt home'a yönlendirilir
   Future<void> autoLogin() async {
     User? user = await authService.autoLogin();
     if(user != null) {

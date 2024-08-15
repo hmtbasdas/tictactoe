@@ -13,6 +13,7 @@ void main() async {
   runApp(const MyApp());
 }
 
+// full ekran ayarlandı, firebase intialize edildi
 Future<void> _init() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: []);
   await Firebase.initializeApp();
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       scaffoldMessengerKey: Manager.instance.managerModel.scaffoldKey,
       theme: AppTheme().appTheme,
       debugShowCheckedModeBanner: false,
+      // navigation
       navigatorKey: NavigationService.instance.navigatorKey,
       onGenerateRoute: NavigationRoute.instance.generateRoute,
     );

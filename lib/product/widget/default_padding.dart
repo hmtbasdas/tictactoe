@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// default padding
 class DefaultPadding extends StatelessWidget {
   const DefaultPadding({required this.child, this.left = 16, this.right = 16, this.top = 0, this.bottom = 0, super.key});
 
