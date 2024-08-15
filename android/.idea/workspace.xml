@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e3ce9f15-d29e-4e32-ae26-c18240c3eb3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../lib/product/model/game_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lib/product/service/firestore_stream.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/core/base/model/base_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/core/base/model/base_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/core/constant/enum/firebase_storage_col_enum.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/core/constant/enum/firebase_storage_col_enum.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/core/init/theme/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/core/init/theme/app_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/core/manager/manager_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/core/manager/manager_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/core/manager/manager_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/core/manager/manager_model.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/view/main/game/create_game/view-model/create_game_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/view/main/game/create_game/view-model/create_game_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/view/main/game/service/game_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/view/main/game/service/game_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/view/main/game/service/igame_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/view/main/game/service/igame_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/view/main/home/view-model/home_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/view/main/home/view-model/home_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/view/main/home/view/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/view/main/home/view/home.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2kgDz8SrvyYgvWYXfrUYe2sXhk9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e3ce9f15-d29e-4e32-ae26-c18240c3eb3f" name="Changes" comment="" />
+      <created>1723696585905</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723696585905</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,3 +1,3 @@
 enum FSCollectionEnum {
-  Users
+  Users, Games
 }

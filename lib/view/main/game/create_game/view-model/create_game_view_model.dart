@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:tictactoe/core/base/model/base_model.dart';
 import 'package:tictactoe/core/constant/color/colors.dart';
+import 'package:tictactoe/view/main/game/service/game_service.dart';
+import 'package:tictactoe/view/main/game/service/igame_service.dart';
 
 part 'create_game_view_model.g.dart';
 
 class CreateGameViewModel = _CreateGameViewModelBase with _$CreateGameViewModel;
 
 abstract class _CreateGameViewModelBase with Store, BaseModel {
+  late IGameService gameService;
+
   TextEditingController gameNameTextEditingController = TextEditingController();
 
   @observable
@@ -16,6 +20,7 @@ abstract class _CreateGameViewModelBase with Store, BaseModel {
   @override
   void setContext(BuildContext context) {
     mContext = context;
+    gameService = GameService();
   }
 
   @override
@@ -31,7 +36,10 @@ abstract class _CreateGameViewModelBase with Store, BaseModel {
     return MediaQuery.of(context).size.height * value;
   }
 
-  Future<void> createGame() async {}
+  Future<void> createGame() async {
+    bool result = await gameService.createGame(gameNameTextEditingController.text, selectedGameBoardColorIndex);
+    result ? Navigator.pop(mContext!) : customSnackBar.showCustomSnackBar(errorColor, "Something went wrong!");
+  }
 
   void validation() async {
     gameNameTextEditingController.text.isNotEmpty ?
